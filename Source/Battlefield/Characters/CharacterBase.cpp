@@ -54,12 +54,18 @@ bool ACharacterBase::IsDead() const
 void ACharacterBase::Aim()
 {
 	bIsAiming = true;
+
+	if (IsPlayerControlled())
+		Weapon->SetActorRelativeRotation(FRotator(0.0f, 10.0f, -20.0f));
 }
 
 // Character stops aiming
 void ACharacterBase::StopAiming()
 {
 	bIsAiming = false;
+
+	if (IsPlayerControlled())
+		Weapon->SetActorRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
 }
 
 // Character fires weapon

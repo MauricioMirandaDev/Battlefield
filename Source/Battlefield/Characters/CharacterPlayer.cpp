@@ -51,9 +51,10 @@ void ACharacterPlayer::Aim()
 {
 	Super::Aim();
 
-	Camera->SetRelativeLocation(FVector(230.0f, 40.0f, 10.0f));
+	Camera->SetRelativeLocation(FVector(0.0f, 50.0f, 10.0f));
+	Camera->SetFieldOfView(30.0f);
 
-	MovementComp->MaxWalkSpeed = 350.0f;
+	MovementComp->MaxWalkSpeed = 300.0f;
 
 	bUseControllerRotationYaw = true;
 }
@@ -64,6 +65,7 @@ void ACharacterPlayer::StopAiming()
 	Super::StopAiming();
 
 	Camera->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+	Camera->SetFieldOfView(90.0f);
 
 	MovementComp->MaxWalkSpeed = 600.0f;
 

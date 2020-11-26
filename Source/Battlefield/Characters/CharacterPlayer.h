@@ -55,6 +55,6 @@ private:
 	void LookUpRate(float Scale);
 
 	// Rotation of camera on gamepad
-	UPROPERTY(EditAnywhere, Category = "Controls", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controls", meta = (AllowPrivateAccess = "true"))
 	float RotationRate = 10.0f;
 };
