@@ -6,12 +6,23 @@
 #include "AIController.h"
 #include "EnemyAIController.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class BATTLEFIELD_API AEnemyAIController : public AAIController
 {
 	GENERATED_BODY()
 	
+public:
+	// Called every frame
+	virtual void Tick(float DeltaSeconds) override;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+	
+	// Determine whether the character is dead or not
+	bool IsDead() const;
+
+private:
+	UPROPERTY(EditAnywhere, Category = "Behavior Tree", meta = (AllowPrivateAccess = "true"))
+	class UBehaviorTree* BehaviorTree;
 };
