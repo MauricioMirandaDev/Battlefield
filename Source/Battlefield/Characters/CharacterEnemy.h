@@ -21,6 +21,8 @@ public:
 	// Enemy fires weapon
 	virtual void Fire() override;
 
+	UCharacterMovementComponent* MovementComp;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,5 +31,4 @@ protected:
 	virtual void StopAiming() override;
 
 private:
-
 };

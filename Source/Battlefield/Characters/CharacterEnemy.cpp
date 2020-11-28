@@ -6,7 +6,7 @@
 // Sets default values
 ACharacterEnemy::ACharacterEnemy()
 {
-
+	MovementComp = GetCharacterMovement();
 }
 
 // Called when the game starts or when spawned

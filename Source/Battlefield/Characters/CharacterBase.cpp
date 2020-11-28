@@ -9,14 +9,14 @@ ACharacterBase::ACharacterBase()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	CurrentHealth = MaxHealth;
 }
 
 // Called when the game starts or when spawned
 void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	CurrentHealth = MaxHealth;
 	
 	Weapon = GetWorld()->SpawnActor<AWeapon>(WeaponClass);
 
@@ -64,8 +64,7 @@ void ACharacterBase::StopAiming()
 {
 	bIsAiming = false;
 
-	if (IsPlayerControlled())
-		Weapon->SetActorRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
+	Weapon->SetActorRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
 }
 
 // Character fires weapon
