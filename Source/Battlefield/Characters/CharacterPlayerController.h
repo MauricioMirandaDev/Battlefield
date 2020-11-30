@@ -19,7 +19,4 @@ public:
 
 	// Called from game mode upon end of the game, used to transition to proper state.
 	virtual void GameHasEnded(class AActor* EndGameFocus = nullptr, bool bIsWinner = false) override;
-
-private:
-
 };
