@@ -30,6 +30,10 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		bool bIsAiming = false;
 
+	// Used to decrease health bar
+	UFUNCTION(BlueprintPure)
+	float GetHealthPercent() const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

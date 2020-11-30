@@ -3,6 +3,7 @@
 
 #include "CharacterBase.h"
 #include "Battlefield/Actors/Weapon.h"
+#include "Battlefield/BattlefieldGameModeBase.h"
 
 // Sets default values
 ACharacterBase::ACharacterBase()
@@ -41,6 +42,17 @@ float ACharacterBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 	DamageToApply = FMath::Min(CurrentHealth, DamageToApply);
 	CurrentHealth -= DamageToApply;
 
+	if (IsDead())
+	{
+		ABattlefieldGameModeBase* GameMode = GetWorld()->GetAuthGameMode<ABattlefieldGameModeBase>();
+		if (GameMode != nullptr)
+		{
+			GameMode->PawnKilled(this);
+		}
+
+		DetachFromControllerPendingDestroy();
+	}
+
 	return DamageToApply;
 }
 
@@ -48,6 +60,11 @@ float ACharacterBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 bool ACharacterBase::IsDead() const
 {
 	return CurrentHealth <= 0;
+}
+
+float ACharacterBase::GetHealthPercent() const
+{
+	return CurrentHealth / MaxHealth;
 }
 
 // Character aims down sights
