@@ -8,8 +8,6 @@
 void ACharacterPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//SetInputMode(FInputModeGameAndUI());
 }
 
 // Called from game mode upon end of the game, used to transition to proper state.

@@ -40,8 +40,6 @@ void ABattlefieldGameModeBase::EndGame(bool bIsPlayerWinner)
 
 		Controller->GameHasEnded(Controller->GetPawn(), bIsWinner);
 	}
-
-	UE_LOG(LogTemp, Warning, TEXT("Game is over")); 
 }
 
 // Remove the current menu widget and create a new one from the specified class
