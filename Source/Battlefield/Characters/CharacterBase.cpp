@@ -3,6 +3,7 @@
 
 #include "CharacterBase.h"
 #include "Battlefield/Actors/Weapon.h"
+#include "Components/CapsuleComponent.h"
 #include "Battlefield/BattlefieldGameModeBase.h"
 
 // Sets default values
@@ -51,6 +52,7 @@ float ACharacterBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 		}
 
 		DetachFromControllerPendingDestroy();
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 
 	return DamageToApply;
