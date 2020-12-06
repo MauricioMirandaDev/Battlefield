@@ -65,7 +65,7 @@ bool AWeapon::WeaponTrace(FHitResult& Hit, FVector& ShotDirection)
 void AWeapon::PullTrigger()
 {
 	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"));
-	//UGameplayStatics::SpawnSoundAttached(MuzzleSound, Mesh, TEXT("MuzzleFlashSocket"));
+	UGameplayStatics::SpawnSoundAttached(FireSound, Mesh, TEXT("MuzzleFlashSocket"));
 
 	FHitResult Hit;
 	FVector ShotDirection;
@@ -74,7 +74,6 @@ void AWeapon::PullTrigger()
 	if (bSuccess)
 	{
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
-		//UGameplayStatics::SpawnSoundAtLocation(GetWorld(), ImpactSound, Hit.Location, ShotDirection.Rotation(), VolumeMultiplier);
 
 		AActor* HitActor = Hit.GetActor();
 		if (HitActor != nullptr)

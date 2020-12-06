@@ -39,6 +39,9 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Particles", meta = (AllowPrivateAccess = "true"))
 		UParticleSystem* ImpactEffect;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sounds", meta = (AllowPrivateAccess = "true"))
+	USoundBase* FireSound;
+
 	// Range for the weapon
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Range", meta = (AllowPrivateAccess = "true"))
 		float MaxRange = 1000.0f;
